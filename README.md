@@ -199,8 +199,10 @@ Throughout the project, our team continually improved the physical integration o
 
 | Version | Component | Improvement | Reason |
 |---------|-----------|-------------|---------|
+| v1.0 | Camera Mount | Initial online-found design | Proof of concept |
+| v1.1 | Camera Mount | Custom-designed mount | Improved stability and better positioning |
 | v1.0 | Leash Holder | Initial position | Proof of concept |
-| v2.0 | Leash Holder | Repositioned & Reprinted | Avoided wiring/camera obstruction |
+| v2.0 | Leash Holder | Repositioned & Reprinted | Better fixture of the leash and avoided wiring/camera obstruction |
 | v2.1 | Power System | Dual Power Buttons | Independent module control |
 
 ### Key Improvements
@@ -359,6 +361,16 @@ This project builds upon the core curriculum of MAE/ECE 148: Introduction to Aut
 | Vision Control | Object detection (stop signs, balls) | Stop sign detection with OAK-D |
 | Sensor Fusion | Combining vision, GPS, IMU data | Voice + vision integration |
 | ROS2 Architecture | Modular node design | Custom voice/vision nodes |
+
+### Course Deliverables
+
+Throughout the MAE 148 course, our team completed several key deliverables that formed the foundation for our final Guide Dog Robocar project:
+
+🎥 **[Lane Following Demo](https://www.youtube.com/watch?v=O8um_w0W6vo)** - Implementation of camera-based lane detection and following using computer vision techniques. This deliverable established our foundation in autonomous navigation and real-time image processing.
+
+🎥 **[GPS Navigation Demo](https://youtu.be/LwVt_FhyUHY)** - Autonomous GPS navigation system performing waypoint-based laps around the track. This deliverable was integrated into our final project as a secondary navigation mode, though we pivoted to prioritize voice control due to control signal conflicts.
+
+🎥 **[DonkeyCar 3 Deep Learning Laps](https://youtu.be/lJ9elERHlCk)** - Machine learning-based autonomous driving using behavioral cloning. The car learned to navigate the track through end-to-end deep learning, training on human driving data to perform autonomous laps.
 
 ### Course Resources
 
