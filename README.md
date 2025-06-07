@@ -15,6 +15,12 @@ MAE/ECE 148 Final Project - Team 13 - Spring 2025
 
 </div>
 
+### Live Demo Video
+
+🎥 **[Watch our Stop Sign Recognition & Voice Control Demo](https://youtu.be/_o1pYVuZvjg)**
+
+See the Guide Dog Robocar in action with real-time stop sign detection and voice-controlled steering, throttle, and navigation commands.
+
 ## Table of Contents
 - [Overview](#overview)
 - [Key Features](#key-features)
@@ -398,16 +404,16 @@ Big thanks to @kiers-neely for the README structure inspiration and the open-sou
 
 ### Team Contact Information
 
-| Team Member | Email | Role |
-|-------------|-------|------|
-| Qinyi Li | qil010@ucsd.edu | Audio Systems Lead |
-| Yuyang Zhang | yuz024@ucsd.edu | Computer Vision Lead |
-| Lukas Teubner | lteubner@ucsd.edu | Hardware Design Lead |
-| Clarence Lai | clai015@ucsd.edu | Mechanical Integration Lead |
+| Team Member | Role |
+|-------------|------|
+| Qinyi Li | Audio Systems Lead |
+| Yuyang Zhang | Computer Vision Lead |
+| Lukas Teubner | Hardware Design Lead |
+| Clarence Lai | Mechanical Integration Lead |
 
 ### Project Collaboration
 
-For questions about this project, technical implementation details, or potential collaboration opportunities, please reach out to any team member above.
+For questions about this project, technical implementation details, or potential collaboration opportunities, please contact the team through this repository.
 
 ---
 
