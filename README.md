@@ -42,18 +42,16 @@ See the Guide Dog Robocar in action with real-time stop sign detection and voice
 
 ## Overview
 
-The Guide Dog Robocar is a prototype autonomous service robot designed to emulate a guide dog, offering voice-controlled navigation and hazard awareness. Using advanced speech recognition and stop-sign detection, the robot follows user commands and responds appropriately to visual stimuli. The system is built on a modular ROS2 framework, leveraging camera vision, voice integration, and a VESC motor controller for movement.
-
-**Note:** This document is a high-level overview. For technical instructions and node setup, refer to our internal architecture notes.
+The Guide Dog Robocar is a autonomous service robot designed to emulate a guide dog, offering voice-controlled navigation and hazard alarming. Using advanced speech recognition API and stop-sign detection model from Roboflow, the robot follows user commands and responds appropriately to visual stimuli. The system is built on a modular ROS2 framework, leveraging camera vision, voice integration, and a VESC motor controller for movement and dsiplay the running status on the website GUI.
 
 ## Key Features
 
-- **Voice Recognition**: Uses an LLM running on a host PC to interpret spoken commands and send navigation instructions
-- **Speaker Feedback**: Robot confirms each voice command via an integrated speaker system
-- **Stop Sign Detection**: Trained model running on the OAK-D Lite recognizes stop signs and halts the robot
+- **Voice Recognition**: Leverages an LLM hosted on a PC to interpret spoken commands and dispatch navigation instructions via HTTP.
+- **Stop Sign Detection**: Trained model from the Roboflow running on the OAK-D Lite recognizes stop signs and halts the robot。
+- **Speaker Feedback**: The speaker receives the ROS2 command and converts it into voice output.
 - **Web GUI**: Live feed and status interface displaying robot camera, stop sign triggers, and command state
-- **ROS 2 Integration**: Modular node system handling camera feed, commands, stop sign detection, and control
-
+- **ROS 2 Integration**: A modular ROS 2 node architecture integrates voice control and sign detection, prioritizing the camera feed.
+  
 ## Team Members
 
 | Name | Major | Year | Role/Focus |
@@ -75,16 +73,17 @@ The Guide Dog Robocar is a prototype autonomous service robot designed to emulat
 **Stop Sign Detection**
 - Roboflow-trained model detects signs using OAK-D Lite
 - Sends stop commands via `/stop_cmd_twist`
+- Integration with voice control
 
 **Multimodal Feedback**
-- Speaker repeats commands to confirm actions
+
 - GUI displays voice and camera feedback
 
 ### Nice-to-Have Features
 
+- Speaker commands for alarming and user interface
 - Integration with GPS for route-based commands (downgraded in final pivot)
-- Leash sensor input (simulating user guidance)
-- Path conflict resolution between voice and GPS nodes
+- Dog-like appearance
 
 ## System Architecture
 
@@ -94,7 +93,7 @@ ROS 2-based modular system with nodes:
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   Host PC       │    │   Jetson Nano    │    │   Hardware      │
 │                 │    │                  │    │                 │
-│ ┌─────────────┐ │    │ ┌──────────────┐ │    │ ┌─────────────┐ │
+│ ┌─────────────┐ │HTTP│ ┌──────────────┐ │    │ ┌─────────────┐ │
 │ │ LLM Voice   │ │───▶│ │ voice_control│ │───▶│ │ VESC Motor  │ │
 │ │ Recognition │ │    │ │ Node         │ │    │ │ Controller  │ │
 │ └─────────────┘ │    │ └──────────────┘ │    │ └─────────────┘ │
