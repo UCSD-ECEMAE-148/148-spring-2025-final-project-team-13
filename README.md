@@ -5,7 +5,7 @@ MAE/ECE 148 Final Project - Team 13 - Spring 2025
 
 <div align="center">
 
-![Guide Dog Robocar - Complete Side Profile](images/Whole_Car_Side.jpg)
+![Guide Dog Robocar - Complete Side Profile](images/ful_car_with_final_hardware.png)
 
 *Guide Dog Robocar - Complete Side Profile*
 
