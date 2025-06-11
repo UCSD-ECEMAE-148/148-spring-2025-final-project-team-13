@@ -30,6 +30,7 @@ See the Guide Dog Robocar in action with real-time stop sign detection and voice
 - [Technologies Used](#technologies-used)
 - [How to Run](#how-to-run)
 - [Lessons Learned](#lessons-learned)
+- [Struggles & Challenges](#struggles--challenges)
 - [Hardware Iterations](#hardware-iterations)
 - [System Wiring & Electronics](#system-wiring--electronics)
 - [Leash and Leash Holder](#leash-and-leash-holder)
@@ -69,14 +70,16 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - LLM model runs on PC
 - ROS 2 node on Jetson receives HTTP commands
 - Commands converted to `/cmd_vel` twist messages
+- Support for basic commands: "start", "stop"
+- Advanced commands with speed control: "turn left with speed of 0.3"
 
 **Stop Sign Detection**
 - Roboflow-trained model detects signs using OAK-D Lite
+- Car automatically stops when stop sign is detected
 - Sends stop commands via `/stop_cmd_twist`
 - Integration with voice control
 
 **Multimodal Feedback**
-
 - GUI displays voice and camera feedback
 
 ### Nice-to-Have Features
@@ -189,6 +192,64 @@ During implementation, we discovered that integrating GPS with voice and vision 
 - **Modular Design Benefits**: ROS2's node-based architecture made it easy to isolate and debug individual components
 - **Real-time Processing**: On-device model inference with OAK-D Lite provided consistent performance
 - **Voice Integration Challenges**: HTTP communication between PC and Jetson introduced latency considerations
+
+### Project Management Learnings
+
+**Time Estimation Reality Check**
+We learned the hard way to overestimate how long things actually take. What seemed like a "30-minute PID tuning session" often turned into hours of debugging. Hardware failures, cable issues, and unexpected software conflicts consistently derailed our timeline estimates. Our advice: triple your initial time estimates and you might be close to reality.
+
+**The Art of Troubleshooting**
+Every component failure taught us systematic troubleshooting skills. When something broke, we learned to:
+- Isolate the problem by testing components individually
+- Check the obvious things first (cables, power, connections)
+- Document what worked before vs. what changed
+- Keep spare components when possible
+- Never assume it's a software issue until you've ruled out hardware
+
+**Adaptability Under Pressure**
+The Jetson failure at 11:30 PM the night before race day became our masterclass in crisis management. We learned that having good documentation, modular code architecture, and maintaining relationships with TAs and other teams can save your project. Being adaptable meant quickly pivoting from panic to problem-solving mode.
+
+**Creative Problem-Solving**
+When conventional solutions failed, creativity became our best tool:
+- Used 3D printing to rapidly prototype custom mounts and holders
+- Repurposed everyday items for temporary fixes during testing
+- Collaborated with other teams when our hardware was unreliable
+- Found innovative ways to integrate multiple sensors without interference
+- Developed workarounds for component limitations (like our dual power button solution)
+
+**Communication is Everything**
+Working as a team with diverse backgrounds taught us that clear communication prevents most problems. Regular check-ins, shared documentation, and explaining technical concepts across different expertise levels became crucial for success.
+
+**Backup Plans Save Projects**
+Always have a backup plan. Whether it's spare hardware, alternative software approaches, or team collaboration strategies, redundancy in planning proved invaluable when primary systems failed.
+
+## Struggles & Challenges
+
+### Hardware Struggles
+
+Our journey building the Guide Dog Robocar was filled with hardware challenges that tested our problem-solving skills and determination. Each setback became a learning opportunity, though some came at the most inconvenient times.
+
+**GPS Module Headaches**
+During our GPS navigation implementation, we constantly battled with PID tuning. Every time we wanted to test different speeds for our GPS laps, we had to recalibrate the PID values from scratch. To make matters worse, our GPS modules kept experiencing cable connection issues, causing intermittent failures that made debugging a nightmare.
+
+**The Great Jetson Crisis of Race Day**
+Perhaps our most stressful moment came the night before the racing day in May. At 11:30 PM, disaster struck – our Jetson Nano's ports completely stopped working. With the race less than 12 hours away, panic set in. Fortunately, our TA Alex came to the rescue, helping us swap out the entire Jetson unit while preserving our SD card with all our precious code. This last-minute hardware failure forced us to collaborate with Team 4 on race day, as we weren't sure our car would function at all. However, our persistence paid off – our car finally worked on race day since we had properly configured the GPS PID values and could reuse them with the new Jetson.
+
+**VESC and Power System Woes**
+Our VESC motor controller proved to be another persistent source of frustration. After numerous malfunctions, we finally decided to replace it entirely. However, the new VESC required modifications to our custom leash/power button mount plate, since it came with a separate power button configuration. This meant reprinting and redesigning components we thought were finalized.
+
+**Battery and Suspension Failures**
+As if electronic issues weren't enough, our batteries failed multiple times throughout the project, each time requiring replacement and system recalibration. Our car's suspension system also gave out, necessitating a complete replacement that temporarily sidelined our testing.
+
+**Camera Mount Evolution**
+For our lane following implementation, we discovered our camera positioning wasn't optimal. This led to designing and 3D printing a custom camera extension for our camera mount, adding another iteration to our hardware design cycle.
+
+### Team Challenges
+
+**Foreign Student Experience**
+Adding an extra layer of complexity to our project, three out of four team members were foreign exchange students new to UCSD. Navigating an unfamiliar campus, understanding American academic systems, and adapting to different engineering practices while building a complex autonomous vehicle created unique challenges. We had to learn not just the technical aspects of robotics, but also how to effectively collaborate across different cultural approaches to engineering and problem-solving.
+
+Despite these numerous setbacks, each challenge strengthened our team's resilience and problem-solving abilities. The combination of hardware failures, time pressure, and cultural adaptation made our eventual success even more rewarding.
 
 ## Hardware Iterations
 
@@ -399,9 +460,9 @@ Throughout the MAE 148 course, our team completed several key deliverables that 
 
 Special thanks to Professor Jack Silberman and the dedicated Teaching Assistants:
 
-- **Alexander** - Technical guidance and ROS2 support
-- **Winston** - Hardware integration assistance
-- **Vivek** - Computer vision and debugging help
+- **Alexander** - Hardware support and technical guidance
+- **Winston** - Helping with the Jetson recovery
+- **Jing Li** - Voluntary help and support
 
 ### UCSD MAE 148 Program
 
