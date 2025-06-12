@@ -70,47 +70,26 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - LLM model runs on PC
 - ROS 2 node on Jetson receives HTTP commands
 - Commands converted to `/cmd_vel` twist messages
-- Support for basic commands: "start", "stop"
-- Advanced commands with speed control: "turn left with speed of 0.3"
+- basic commands like "start", "stop" and "turn left" 
+- Advanced commands like "turn left with speed of 0.3 at the angle of 30 degrees"
 
 **Stop Sign Detection**
 - Roboflow-trained model detects signs using OAK-D Lite
-- Car automatically stops when stop sign is detected
 - Sends stop commands via `/stop_cmd_twist`
+- Car automatically stops when stop sign is detected
 - Integration with voice control
-
-**Multimodal Feedback**
-- GUI displays voice and camera feedback
-
+  
 ### Nice-to-Have Features
-
-- Speaker commands for alarming and user interface
-- Integration with GPS for route-based commands (downgraded in final pivot)
-- Dog-like appearance
+- Speaker commands for alarming 
+- GUI displays voice and camera feedback
+- Integration with GPS
 
 ## System Architecture
 
-ROS 2-based modular system with nodes:
+ROS 2-based modular system 
 
 ```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Host PC       │    │   Jetson Nano    │    │   Hardware      │
-│                 │    │                  │    │                 │
-│ ┌─────────────┐ │HTTP│ ┌──────────────┐ │    │ ┌─────────────┐ │
-│ │ LLM Voice   │ │───▶│ │ voice_control│ │───▶│ │ VESC Motor  │ │
-│ │ Recognition │ │    │ │ Node         │ │    │ │ Controller  │ │
-│ └─────────────┘ │    │ └──────────────┘ │    │ └─────────────┘ │
-│                 │    │                  │    │                 │
-│                 │    │ ┌──────────────┐ │    │ ┌─────────────┐ │
-│                 │    │ │ stop_detector│ │◀───│ │ OAK-D Lite  │ │
-│                 │    │ │ Node         │ │    │ │ Camera      │ │
-│                 │    │ └──────────────┘ │    │ └─────────────┘ │
-│                 │    │                  │    │                 │
-│                 │    │ ┌──────────────┐ │    │ ┌─────────────┐ │
-│                 │    │ │ speaker_node │ │───▶│ │ Speaker     │ │
-│                 │    │ └──────────────┘ │    │ │ System      │ │
-│                 │    │                  │    │ └─────────────┘ │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
+
 ```
 
 ### Node Descriptions
