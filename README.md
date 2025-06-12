@@ -85,10 +85,7 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - Integration with GPS
 
 ## System Architecture
-
-ROS 2-based modular system_(images/ROS2 Architecture.png)
-
-```
+![ROS 2-based modular system](images/ROS2 Architecture.png)
 
 ### Node Descriptions
 
