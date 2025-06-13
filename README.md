@@ -84,8 +84,29 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - GUI displays voice and camera feedback
 - Integration with GPS
 
+## Core Components
+
+- **Jetson Nano**: Main computing platform running ROS2 nodes
+- **VESC Motor Controller**: Manages drive and steering motor control
+- **Battery System**: Powers both computing and motor systems
+- **GPS Module**: Provides location data for navigation (future implementation)
+- **OAK-D Lite Camera**: Computer vision and depth sensing
+- **Speaker System**: Audio feedback for voice command confirmation
+
+## System Wiring & Electronics
+
+The Guide Dog Robocar integrates multiple electronic components through a carefully designed wiring system:
+
 ## System Architecture
 ![ROS 2-based modular system](images/ROS2_Architecture.png)
+
+### Implementation Details
+
+- **Host PC**: Runs LLM-based voice recognition system
+- **Jetson Nano**: Receives HTTP commands and drives the ROS2 workspace
+- **Remote Access**: Wireless SSH used from Mac and Windows VM to access Jetson
+- **Containerization**: Docker container holds all dependencies
+- **Base Platform**: UCSD Robocar Base used for chassis and motor interfacing
 
 ### Node Descriptions
 
@@ -185,7 +206,7 @@ python3 src/final_projects/final_projects/user_web.py
 ros2 launch ucsd_robocar_actuator2_pkg vesc_twist.launch.py
 ```
 
-## Lessons Learned
+## Challenges
 
 ### Key Discovery: Control Signal Conflicts
 
@@ -201,35 +222,7 @@ During implementation, we discovered that integrating GPS with voice and vision 
 - **Real-time Processing**: On-device model inference with OAK-D Lite provided consistent performance
 - **Voice Integration Challenges**: HTTP communication between PC and Jetson introduced latency considerations
 
-### Project Management Learnings
 
-**Time Estimation Reality Check**
-We learned the hard way to overestimate how long things actually take. What seemed like a "30-minute PID tuning session" often turned into hours of debugging. Hardware failures, cable issues, and unexpected software conflicts consistently derailed our timeline estimates. Our advice: triple your initial time estimates and you might be close to reality.
-
-**The Art of Troubleshooting**
-Every component failure taught us systematic troubleshooting skills. When something broke, we learned to:
-- Isolate the problem by testing components individually
-- Check the obvious things first (cables, power, connections)
-- Document what worked before vs. what changed
-- Keep spare components when possible
-- Never assume it's a software issue until you've ruled out hardware
-
-**Adaptability Under Pressure**
-The Jetson failure at 11:30 PM the night before race day became our masterclass in crisis management. We learned that having good documentation, modular code architecture, and maintaining relationships with TAs and other teams can save your project. Being adaptable meant quickly pivoting from panic to problem-solving mode.
-
-**Creative Problem-Solving**
-When conventional solutions failed, creativity became our best tool:
-- Used 3D printing to rapidly prototype custom mounts and holders
-- Repurposed everyday items for temporary fixes during testing
-- Collaborated with other teams when our hardware was unreliable
-- Found innovative ways to integrate multiple sensors without interference
-- Developed workarounds for component limitations (like our dual power button solution)
-
-**Communication is Everything**
-Working as a team with diverse backgrounds taught us that clear communication prevents most problems. Regular check-ins, shared documentation, and explaining technical concepts across different expertise levels became crucial for success.
-
-**Backup Plans Save Projects**
-Always have a backup plan. Whether it's spare hardware, alternative software approaches, or team collaboration strategies, redundancy in planning proved invaluable when primary systems failed.
 
 ## Struggles & Challenges
 
@@ -258,6 +251,36 @@ For our lane following implementation, we discovered our camera positioning wasn
 Adding an extra layer of complexity to our project, three out of four team members were foreign exchange students new to UCSD. Navigating an unfamiliar campus, understanding American academic systems, and adapting to different engineering practices while building a complex autonomous vehicle created unique challenges. We had to learn not just the technical aspects of robotics, but also how to effectively collaborate across different cultural approaches to engineering and problem-solving.
 
 Despite these numerous setbacks, each challenge strengthened our team's resilience and problem-solving abilities. The combination of hardware failures, time pressure, and cultural adaptation made our eventual success even more rewarding.
+
+## Project Management Learnings
+
+**Time Estimation Reality Check**
+We learned the hard way to overestimate how long things actually take. What seemed like a "30-minute PID tuning session" often turned into hours of debugging. Hardware failures, cable issues, and unexpected software conflicts consistently derailed our timeline estimates. Our advice: triple your initial time estimates and you might be close to reality.
+
+**The Art of Troubleshooting**
+Every component failure taught us systematic troubleshooting skills. When something broke, we learned to:
+- Isolate the problem by testing components individually
+- Check the obvious things first (cables, power, connections)
+- Document what worked before vs. what changed
+- Keep spare components when possible
+- Never assume it's a software issue until you've ruled out hardware
+
+**Adaptability Under Pressure**
+The Jetson failure at 11:30 PM the night before race day became our masterclass in crisis management. We learned that having good documentation, modular code architecture, and maintaining relationships with TAs and other teams can save your project. Being adaptable meant quickly pivoting from panic to problem-solving mode.
+
+**Creative Problem-Solving**
+When conventional solutions failed, creativity became our best tool:
+- Used 3D printing to rapidly prototype custom mounts and holders
+- Repurposed everyday items for temporary fixes during testing
+- Collaborated with other teams when our hardware was unreliable
+- Found innovative ways to integrate multiple sensors without interference
+- Developed workarounds for component limitations (like our dual power button solution)
+
+**Communication is Everything**
+Working as a team with diverse backgrounds taught us that clear communication prevents most problems. Regular check-ins, shared documentation, and explaining technical concepts across different expertise levels became crucial for success.
+
+**Backup Plans Save Projects**
+Always have a backup plan. Whether it's spare hardware, alternative software approaches, or team collaboration strategies, redundancy in planning proved invaluable when primary systems failed.
 
 ## Hardware Iterations
 
@@ -303,24 +326,7 @@ Throughout the project, our team continually improved the physical integration o
 
 *Complete System with new acrylic build plate, new camera mount, and leash/power button holder*
 
-## System Wiring & Electronics
 
-The Guide Dog Robocar integrates multiple electronic components through a carefully designed wiring system:
-
-### Core Components
-
-- **Jetson Nano**: Main computing platform running ROS2 nodes
-- **VESC Motor Controller**: Manages drive and steering motor control
-- **Battery System**: Powers both computing and motor systems
-- **GPS Module**: Provides location data for navigation (future implementation)
-- **OAK-D Lite Camera**: Computer vision and depth sensing
-- **Speaker System**: Audio feedback for voice command confirmation
-
-### Power Architecture
-
-- **Dual Power Control**: Separate power buttons for Jetson Nano and VESC systems
-- **Independent Shutdown**: Allows selective component testing and debugging
-- **Battery Management**: Centralized power distribution with appropriate voltage regulation
 
 ### System Wiring Diagram
 
@@ -392,29 +398,6 @@ To emulate a guide dog experience, we added a physical leash to our robocar that
 
 *Integrated leash holder with dual power button housing - Designed by Lukas*
 
-## Software and Embedded Systems
-
-### System Architecture Overview
-
-```mermaid
-graph TD
-    A[Host PC - LLM Voice Recognition] -->|HTTP Commands| B[Jetson Nano ROS2 Workspace]
-    B --> C[Voice Control Node]
-    B --> D[Stop Detector Node] 
-    B --> E[Speaker Node]
-    B --> F[Web Status Node]
-    G[OAK-D Lite Camera] --> D
-    C --> H[VESC Motor Controller]
-    E --> I[Speaker System]
-```
-
-### Implementation Details
-
-- **Host PC**: Runs LLM-based voice recognition system
-- **Jetson Nano**: Receives HTTP commands and drives the ROS2 workspace
-- **Remote Access**: Wireless SSH used from Mac and Windows VM to access Jetson
-- **Containerization**: Docker container holds all dependencies
-- **Base Platform**: UCSD Robocar Base used for chassis and motor interfacing
 
 ## MAE 148 Course Concepts
 
@@ -470,7 +453,7 @@ Special thanks to Professor Jack Silberman and the dedicated Teaching Assistants
 
 - **Alexander** - Hardware support and technical guidance
 - **Winston** - Helping with the Jetson recovery
-- **Jing Li** - Voluntary help and support
+- **Jingli** - Voluntary help and support
 
 ### UCSD MAE 148 Program
 
