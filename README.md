@@ -312,6 +312,9 @@ Throughout the project, our team continually improved the physical integration o
 - **Build Plate Evolution**: Progressed from laser-cut wooden build plate to laser-cut acrylic build plate for improved durability and aesthetics
 
 ### Component Images
+**Plate Design**
+![Plate Design](images/build_plate.png)
+
 **Camera Mount Design**
 ![Camera Mount Design](images/Camera_holder.png)
 
@@ -325,21 +328,8 @@ Throughout the project, our team continually improved the physical integration o
 ![Speaker Mount Integration](images/Holder_Speaker.png)
 
 
-
-
 ## MAE 148 Course Concepts
-
 This project builds upon the core curriculum of MAE/ECE 148: Introduction to Autonomous Vehicles:
-
-### Applied Course Concepts
-
-| Concept | Course Application | Our Implementation |
-|---------|-------------------|-------------------|
-| Lane Following | Camera-based lane centering | Voice-controlled navigation |
-| GPS Navigation | Waypoint tracking with GNSS | HTTP command-based movement |
-| Vision Control | Object detection (stop signs, balls) | Stop sign detection with OAK-D |
-| Sensor Fusion | Combining vision, GPS, IMU data | Voice + vision integration |
-| ROS2 Architecture | Modular node design | Custom voice/vision nodes |
 
 ### Course Deliverables
 
@@ -356,8 +346,6 @@ Throughout the MAE 148 course, our team completed several key deliverables that 
 - **Course Website**: [mae148.ucsd.edu](https://mae148.ucsd.edu)
 - **GitHub Documentation**: [github.com/MAE-148](https://github.com/MAE-148)
 - **Open-source Starter Kits**: Available through course materials
-
-
 
 ## Acknowledgments
 
@@ -383,8 +371,8 @@ Big thanks to @kiers-neely for the README structure inspiration and the open-sou
 
 | Team Member | Role |
 |-------------|------|
-| Qinyi Li | Audio Systems Lead |
-| Yuyang Zhang | Computer Vision Lead |
+| Qinyi Li | Camera Model and LLM Lead |
+| Yuyang Zhang | ROS2 construction Lead |
 | Lukas Teubner | Hardware Design Lead |
 | Clarence Lai | Mechanical Integration Lead |
 
