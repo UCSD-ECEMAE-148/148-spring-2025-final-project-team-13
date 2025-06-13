@@ -136,9 +136,10 @@ source install/setup.bash
 ```
 
 ### Step 3: Testing Voice Commands
+on the laptop
 
+in the Jetson
 ```bash
-# in the Jetson
 # Open the HTTP
 cd projects/d4
 source ~/projects/envs/donkey/bin/activate
@@ -146,6 +147,7 @@ python3 manage.py drive
 # have to change the setting in the manage.py to make other inputs work
 export DONKEYCAR_ENDPOINT
 python3 src/final_projects/final_projects/voice_control.py
+```
 # All commands start with "go go go" will be detected
 # Just with "go go go", the car will go straight at the throttle of 0.2
 # Both simple commands like "stop", "turn left" and advanced commands including specific value of speed and steering are allowed
@@ -153,9 +155,13 @@ python3 src/final_projects/final_projects/voice_control.py
 # "go go go turn backwards"
 # "go go go turn left at the angle of 30 degrees and the speed of 0.3"
 # The terminal on the laptop will display the command including throttle and angle and "send successfully"
-```
+
 
 ### Step 4: Testing Stop Sign Detector
+
+### Step 5: Testing Stop Sign Detector
+### Step 6: Launch the robocr
+
 
 
 ## Lessons Learned
