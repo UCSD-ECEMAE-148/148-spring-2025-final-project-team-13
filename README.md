@@ -190,31 +190,32 @@ python3 src/final_projects/final_projects/speaker.py
 python3 src/final_projects/final_projects/user_web.py
 ```
 #### While the running status changes, the speaker will podcast the new status like "moving forward", "turning left" and "reversing".
-#### The GUI on the website will display the Jetson Car Dashboard including "speed", "angular", "detected status" and the live camera feed
+#### The GUI on the website will display the Jetson Car Dashboard including "speed", "angular", "detected status" and the live camera feed.
 
 ### Step 6: Launch the robocar
 ```bash
 # launch the ros2 node to control the VESC
 ros2 launch ucsd_robocar_actuator2_pkg vesc_twist.launch.py
 ```
+#### The node will subscribe to the topic: /cmd_vel and control the VESC.
 
 ## Challenges
 
-### Control Signal Conflicts
+### LLM integration with Jetson
+We initially intended to integrate the LLM of Gemini on the Jetson. While due to the limited computation of the Jetson, the accuracy of recognition is pretty weird. Therefore, we move the model back to laptop and send the command to Jetson via HTTP. Even though, the time latency reaches about 10 seconds.
 
-During implementation, we discovered that integrating GPS with voice and vision inputs led to conflicting control signals. The robot was unable to reconcile simultaneous commands from the voice interface, stop sign detector, and GPS planner.
+#### Possible Solution: 
+Run a lightweight speech-recognition model directly on the Jetson instead of HTTP. 
 
-**Solution:** We pivoted away from using GPS as a core feature, and instead treated it as a nice-to-have for future development.
+### GPS Signal Conflicts
 
-**Impact:** Prioritizing clear, singular control inputs led to more reliable robot behavior and simplified our integration and debugging efforts.
+During implementation, we discovered that integrating GPS with voice and vision inputs led to conflicting control signals. The robot was unable to reconcile simultaneous commands from the voice interface, stop sign detector, and GPS planner. Besides, some commands we want to realize are against the current GPS system, like "speed up" also requires to alter PID.
 
-### Technical Insights
+#### Possible Solution
+Let the integration_node subscribe the GPS information if possible and change the code for integration to deal with inputs properly. Furthermore,  we should write a code to automatically alter the PID when speeding up.
 
-- **Modular Design Benefits**: ROS2's node-based architecture made it easy to isolate and debug individual components
-- **Real-time Processing**: On-device model inference with OAK-D Lite provided consistent performance
-- **Voice Integration Challenges**: HTTP communication between PC and Jetson introduced latency considerations
 
-## Future Improvements
+## Potential Improvements
 
 ### Short-term Enhancements
 
@@ -230,7 +231,7 @@ During implementation, we discovered that integrating GPS with voice and vision 
 - **Learning Algorithms**: Implement adaptive behavior based on user preferences
 - **Accessibility Features**: Enhanced features for visually impaired users
 
-## Struggles & Challenges
+## Struggles
 
 ### Hardware Struggles
 
