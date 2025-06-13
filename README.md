@@ -135,7 +135,7 @@ pip3 install depthai
 cd ~/ros2_ws/src
 git clone https://github.com/your_team_repo/spring-2025-final-project-team-13
 cd ..
-colcon build --packages-select guide_dog_package
+colcon build 
 source /opt/ros/foxy/setup.bash
 source install/setup.bash
 ```
@@ -165,21 +165,25 @@ python3 src/final_projects/final_projects/voice_control.py
 
 
 ### Step 4: Testing Stop Sign Detector
+#### Downloading the trained model from Roboflow and uploading both the blob and yolo model to the container
 ```bash
 python3 src/final_projects/final_projects/stop_detector.py
 ```
+#### The terminal will display the FPS and whether it detects the sign. If true, a stop command will be sent to the integration_node as priority
 
 ### Step 5: Testing Speaker and GUI
 ```bash
 python3 src/final_projects/final_projects/speaker.py
 python3 src/final_projects/final_projects/user_web.py
 ```
+#### While the running status changes, the speaker will podcast the new status like "moving forward", "turning left" and "reversing".
+#### The GUI on the website will display the Jetson Car Dashboard including "speed", "angular", "detected status" and the live camera feed
 
 ### Step 6: Launch the robocar
 ```bash
+# launch the ros2 node to control the VESC
 ros2 launch ucsd_robocar_actuator2_pkg vesc_twist.launch.py
 ```
-
 
 ## Lessons Learned
 
