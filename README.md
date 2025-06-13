@@ -9,10 +9,6 @@ MAE/ECE 148 Final Project - Team 13 - Spring 2025
 
 *Guide Dog Robocar - Complete Side Profile*
 
-![Complete Guide Dog Robocar - Diagonal Side View](images/whole_Car_side_diagonal.jpg)
-
-*Complete Guide Dog Robocar - Diagonal Side View*
-
 </div>
 
 ### Live Demo Video
@@ -93,9 +89,6 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - **OAK-D Lite Camera**: Computer vision and depth sensing
 - **Speaker System**: Audio feedback for voice command confirmation
 
-## System Wiring & Electronics
-
-The Guide Dog Robocar integrates multiple electronic components through a carefully designed wiring system:
 
 ## System Architecture
 ![ROS 2-based modular system](images/ROS2_Architecture.png)
@@ -222,7 +215,21 @@ During implementation, we discovered that integrating GPS with voice and vision 
 - **Real-time Processing**: On-device model inference with OAK-D Lite provided consistent performance
 - **Voice Integration Challenges**: HTTP communication between PC and Jetson introduced latency considerations
 
+## Future Improvements
 
+### Short-term Enhancements
+
+- **Control Conflicts**: Resolve conflicts between continuous twist commands from voice and GPS
+- **Safety Features**: Implement safer collision avoidance using GPS + camera fusion
+- **NLP Expansion**: Extend vocabulary of the LLM for more natural interaction
+- **Vision Robustness**: Improve stop sign detection under varying light conditions
+
+### Long-term Vision
+
+- **Mobile App Integration**: Develop companion app for remote monitoring
+- **Audio Mapping**: Add spatial audio cues for better user guidance
+- **Learning Algorithms**: Implement adaptive behavior based on user preferences
+- **Accessibility Features**: Enhanced features for visually impaired users
 
 ## Struggles & Challenges
 
@@ -305,10 +312,6 @@ Throughout the project, our team continually improved the physical integration o
 ### Hardware Evolution Gallery
 
 **Build Plate Progression**
-
-![First laser-cut build plate design](images/build_plate.png)
-
-*First laser-cut build plate design*
 
 ![Improved build plate iteration](images/build_plate_v2.png)
 
@@ -429,21 +432,7 @@ Throughout the MAE 148 course, our team completed several key deliverables that 
 - **GitHub Documentation**: [github.com/MAE-148](https://github.com/MAE-148)
 - **Open-source Starter Kits**: Available through course materials
 
-## Future Improvements
 
-### Short-term Enhancements
-
-- **Control Conflicts**: Resolve conflicts between continuous twist commands from voice and GPS
-- **Safety Features**: Implement safer collision avoidance using GPS + camera fusion
-- **NLP Expansion**: Extend vocabulary of the LLM for more natural interaction
-- **Vision Robustness**: Improve stop sign detection under varying light conditions
-
-### Long-term Vision
-
-- **Mobile App Integration**: Develop companion app for remote monitoring
-- **Audio Mapping**: Add spatial audio cues for better user guidance
-- **Learning Algorithms**: Implement adaptive behavior based on user preferences
-- **Accessibility Features**: Enhanced features for visually impaired users
 
 ## Acknowledgments
 
