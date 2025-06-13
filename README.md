@@ -89,10 +89,6 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - **OAK-D Lite Camera**: Computer vision and depth sensing
 - **Speaker System**: Audio feedback for voice command confirmation
 
-
-## System Architecture
-![ROS 2-based modular system](images/ROS2_Architecture.png)
-
 ### Implementation Details
 
 - **Host PC**: Runs LLM-based voice recognition system
@@ -100,6 +96,9 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - **Remote Access**: Wireless SSH used from Mac and Windows VM to access Jetson
 - **Containerization**: Docker container holds all dependencies
 - **Base Platform**: UCSD Robocar Base used for chassis and motor interfacing
+
+## System Architecture
+![ROS 2-based modular system](images/ROS2_Architecture.png)
 
 ### Node Descriptions
 
