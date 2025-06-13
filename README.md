@@ -152,9 +152,9 @@ python3 src/final_projects/final_projects/voice_control.py
 #### Just with "go go go", the car will go straight at the throttle of 0.2
 #### Both simple commands like "stop", "turn left" and advanced commands including specific value of speed and steering are allowed
 #### Examples of supported voice commands:
- "go go go turn backwards"
- "go go go turn left at the angle of 30 degrees and the speed of 0.3"
- The terminal on the laptop will display the command including throttle and angle and "send successfully"
+##### "go go go turn backwards"
+##### "go go go turn left at the angle of 30 degrees and the speed of 0.3"
+#### The terminal on the laptop will display the command including throttle and angle and "send successfully"
 
 
 ### Step 4: Testing Stop Sign Detector
