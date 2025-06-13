@@ -322,7 +322,7 @@ Throughout the project, our team continually improved the physical integration o
 ![GPS Holder CAD Design](images/GPS_holder_CAD.png)
 
 **Power System & Leash Integration**
-![Power System & Leash Integration](images/holder_leash_power_button_OLD.jpg)
+![Power System & Leash Integration](images/Leash_and_on_off_button__holder.png)
 
 **Speaker Mount Integration**
 ![Speaker Mount Integration](images/Holder_Speaker.png)
