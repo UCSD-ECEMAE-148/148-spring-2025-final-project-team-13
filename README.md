@@ -293,35 +293,11 @@ Always have a backup plan. Whether it's spare hardware, alternative software app
 
 Throughout the project, our team continually improved the physical integration of components to reflect functional needs and user accessibility:
 
-### Iteration Timeline
+### System Wiring Diagram
 
-| Version | Component | Improvement | Reason |
-|---------|-----------|-------------|---------|
-| v1.0 | Camera Mount | Initial online-found design | Proof of concept |
-| v1.1 | Camera Mount | Custom-designed mount | Improved stability and better positioning |
-| v1.0 | Leash Holder | Initial position | Proof of concept |
-| v2.0 | Leash Holder | Repositioned & Reprinted | Better fixture of the leash and avoided wiring/camera obstruction |
-| v2.1 | Power System | Dual Power Buttons | Independent module control |
+![Wiring diagram](images/electronic_schematics.png)
 
-### Key Improvements
-
-- **Leash Holder Redesign**: Reprinted and repositioned to avoid obstructing wiring and camera components
-- **Dual Power Buttons**: Introduced two distinct on/off buttons—one for the Jetson Nano and one for the VESC motor controller—ensuring safer testing, independent module power control, and ease of debugging during integration
-- **Build Plate Evolution**: Progressed from laser-cut wooden build plate to laser-cut acrylic build plate for improved durability and aesthetics
-
-### Hardware Evolution Gallery
-
-**Build Plate Progression**
-
-![Improved build plate iteration](images/build_plate_v2.png)
-
-*Improved newer build plate iteration with additional holes for camera mount*
-
-**Legacy Hardware Components**
-
-![This was our car with the first Plate out of wood and the first camera mount](images/car_old_plate_Etc.jpg)
-
-*Car with original wooden build plate and first camera mount*
+*Wiring diagram showing connections between VESC motor controller, Jetson Nano, battery system, GPS module, and peripheral components*
 
 **Complete System Integration**
 
@@ -329,77 +305,26 @@ Throughout the project, our team continually improved the physical integration o
 
 *Complete System with new acrylic build plate, new camera mount, and leash/power button holder*
 
+### Key Improvements
 
-
-### System Wiring Diagram
-
-![Wiring diagram](images/electronic_schematics.png)
-
-*Wiring diagram showing connections between VESC motor controller, Jetson Nano, battery system, GPS module, and peripheral components*
-
-### Build Plate Evolution
-
-Our team iterated through multiple build plate designs to optimize component mounting:
-
-- **Wooden Build Plate (v1.0)**: Initial laser-cut wooden platform for proof of concept
-- **Acrylic Build Plate (v2.0)**: Upgraded to laser-cut acrylic for better durability, weather resistance, and professional appearance
-
-## Leash and Leash Holder
-
-To emulate a guide dog experience, we added a physical leash to our robocar that can be pulled slightly by a human user. The leash is mounted on a 3D-printed leash holder, which is attached to the frame behind the camera.
-
-### Dual Purpose Design
-
-| Purpose | Description | Implementation Status |
-|---------|-------------|----------------------|
-| Symbolic | Reinforces the real-world analogy to guide dogs | ✅ Completed |
-| Functional | Can be connected to force/angle sensor for emergency stop | 🔄 Future Work |
-
-### Technical Specifications
-
-- **Material**: 3D-printed PLA plastic
-- **Mounting**: Rear-mounted behind camera assembly
-- **Design**: Custom holder to avoid component interference
-
-## Design Components
-
-| Component | Designer | Description | Status |
-|-----------|----------|-------------|---------|
-| Jetson Mount | Internet Source | Existing design adapted for secure processor mounting | Complete |
-| Camera Mount (Initial) | roncjl (Source) | Original Multiboard OAK-D Lite camera mount | Complete |
-| Camera Mount (Redesigned) | Lukas | Redesigned mount for optimal positioning | Complete |
-| Build Plate v1.0 | Clarence | Laser-cut wooden build plate | Complete |
-| Build Plate v2.0 | Clarence | Laser-cut acrylic build plate | Complete |
-| Leash Holder | Lukas | Iterated mount design for functionality | Complete |
-| Speaker Mount | Lukas | Rear placement for audio feedback | Complete |
-| GPS Holder | Lukas | Custom CAD design for GPS module mounting | Complete |
-| Power Button Housing | Lukas | Integrated leash and power button holder | Complete |
+- **Leash Holder Redesign**: Reprinted and repositioned to avoid obstructing wiring and camera components
+- **Dual Power Buttons**: Introduced two distinct on/off buttons—one for the Jetson Nano and one for the VESC motor controller—ensuring safer testing, independent module power control, and ease of debugging during integration
+- **Build Plate Evolution**: Progressed from laser-cut wooden build plate to laser-cut acrylic build plate for improved durability and aesthetics
 
 ### Component Images
-
 **Camera Mount Design**
-
 ![Camera Mount Design](images/Camera_holder.png)
 
-*Original design based on Multiboard OAK-D Lite camera mount by roncjl, redesigned by Lukas*
-
 **GPS Holder CAD Design**
-
 ![GPS Holder CAD Design](images/GPS_holder_CAD.png)
 
-*Custom GPS module mount - Designed by Lukas*
-
-**Speaker Mount Integration**
-
-![Speaker Mount Integration](images/Holder_Speaker.png)
-
-*Rear-mounted speaker housing - Designed by Lukas*
-
 **Power System & Leash Integration**
-
 ![Power System & Leash Integration](images/holder_leash_power_button_OLD.jpg)
 
-*Integrated leash holder with dual power button housing - Designed by Lukas*
+**Speaker Mount Integration**
+![Speaker Mount Integration](images/Holder_Speaker.png)
+
+
 
 
 ## MAE 148 Course Concepts
