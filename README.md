@@ -67,8 +67,8 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 ### Core Objectives
 
 **Voice Control**
-- LLM model runs on PC
-- ROS 2 node on Jetson receives HTTP commands
+- LLM runs on PC
+- ROS2 node on Jetson receives HTTP commands
 - Commands converted to `/cmd_vel` twist messages
 - basic commands like "start", "stop" and "turn left" 
 - Advanced commands like "turn left with speed of 0.3 at the angle of 30 degrees"
@@ -118,6 +118,11 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 ### Step 1: Environment Setup
 
 ```bash
+# Get into the container
+source ~/.bashrc
+docker start test_container
+docker exec -it test_container bash
+cd ros2_ws
 # Install required dependencies
 sudo apt update
 sudo apt install ros-foxy-desktop
@@ -135,10 +140,12 @@ source /opt/ros/foxy/setup.bash
 source install/setup.bash
 ```
 
-### Step 3: Testing Voice Commands
-on the laptop
-
-in the Jetson
+### Step 3: Testing Voice Control
+#### on the laptop
+```bash
+python speech_processing_runner.py
+```
+#### in the Jetson
 ```bash
 # Open the HTTP
 cd projects/d4
@@ -158,10 +165,20 @@ python3 src/final_projects/final_projects/voice_control.py
 
 
 ### Step 4: Testing Stop Sign Detector
+```bash
+python3 src/final_projects/final_projects/stop_detector.py
+```
 
-### Step 5: Testing Stop Sign Detector
-### Step 6: Launch the robocr
+### Step 5: Testing Speaker and GUI
+```bash
+python3 src/final_projects/final_projects/speaker.py
+python3 src/final_projects/final_projects/user_web.py
+```
 
+### Step 6: Launch the robocar
+```bash
+ros2 launch ucsd_robocar_actuator2_pkg vesc_twist.launch.py
+```
 
 
 ## Lessons Learned
