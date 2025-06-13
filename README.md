@@ -53,8 +53,8 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 
 | Name | Major | Year | Role/Focus |
 |------|-------|------|------------|
-| Qinyi Li | Electrical & Computer Engineering | Spring 2025 | Speaker Integration & Audio Systems |
-| Yuyang Zhang | Biomedical Engineering | Spring 2025 | Computer Vision & Stop Sign Detection |
+| Qinyi Li | Electrical & Computer Engineering | Spring 2025 | Stop Sign Detecttion Model & Audio Systems |
+| Yuyang Zhang | Biomedical Engineering | Spring 2025 | Configuration and Integration & Ros2 Nodes Construction |
 | Lukas Teubner | B.Sc. Engineering Science | Spring 2025 | Hardware Design & 3D Printing |
 | Clarence Lai | Mechanical Engineering | Spring 2025 | Mechanical Integration & Camera Mount |
 
@@ -200,7 +200,7 @@ ros2 launch ucsd_robocar_actuator2_pkg vesc_twist.launch.py
 
 ## Challenges
 
-### Key Discovery: Control Signal Conflicts
+### Control Signal Conflicts
 
 During implementation, we discovered that integrating GPS with voice and vision inputs led to conflicting control signals. The robot was unable to reconcile simultaneous commands from the voice interface, stop sign detector, and GPS planner.
 
