@@ -92,7 +92,7 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 - `/voice_control` – Processes voice-to-command twist messages
 - `/stop_detector` – Runs stop sign model and sends halt signals
 - `/speaker_node` – Plays audio feedback for confirmed commands
-- `/web_status_node` – Displays GUI data like live camera and states
+- `/web_status_node` – Displays GUI data on the website like live camera and states
 - `/integration_node` – Manages node coordination and override logic
 
 ## Technologies Used
@@ -110,7 +110,7 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 ## How to Run
 
 ### Prerequisites
-
+- Jetson Container setup
 - ROS2 Foxy installation
 - DepthAI SDK
 - Jetson Nano with Docker and ROS2 workspace configured
@@ -131,25 +131,32 @@ cd ~/ros2_ws/src
 git clone https://github.com/your_team_repo/spring-2025-final-project-team-13
 cd ..
 colcon build --packages-select guide_dog_package
+source /opt/ros/foxy/setup.bash
 source install/setup.bash
 ```
 
-### Step 3: Launch System
+### Step 3: Testing Voice Commands
 
 ```bash
-# Launch the complete guide dog system
-ros2 launch guide_dog_package guide_dog.launch.py
-```
-
-### Step 4: Testing Voice Commands
-
-```bash
+# in the Jetson
+# Open the HTTP
+cd projects/d4
+source ~/projects/envs/donkey/bin/activate
+python3 manage.py drive
+# have to change the setting in the manage.py to make other inputs work
+export DONKEYCAR_ENDPOINT
+python3 src/final_projects/final_projects/voice_control.py
+# All commands start with "go go go" will be detected
+# Just with "go go go", the car will go straight at the throttle of 0.2
+# Both simple commands like "stop", "turn left" and advanced commands including specific value of speed and steering are allowed
 # Examples of supported voice commands:
-# "Move forward"
-# "Turn left" 
-# "Turn right"
-# "Stop"
+# "go go go turn backwards"
+# "go go go turn left at the angle of 30 degrees and the speed of 0.3"
+# The terminal on the laptop will display the command including throttle and angle and "send successfully"
 ```
+
+### Step 4: Testing Stop Sign Detector
+
 
 ## Lessons Learned
 
