@@ -371,7 +371,7 @@ Big thanks to @kiers-neely for the README structure inspiration and the open-sou
 
 | Team Member | Role |
 |-------------|------|
-| Qinyi Li | Camera Model and LLM Lead |
+| Qinyi Li | Camera Model and Voice recognition Lead |
 | Yuyang Zhang | ROS2 construction Lead |
 | Lukas Teubner | Hardware Design Lead |
 | Clarence Lai | Mechanical Integration Lead |
