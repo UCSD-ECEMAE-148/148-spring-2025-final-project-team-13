@@ -44,16 +44,16 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 ## Key Features
 
 - **Voice Recognition**: Leverages an LLM hosted on a PC to interpret spoken commands and dispatch navigation instructions via HTTP.
-- **Stop Sign Detection**: Trained model from the Roboflow running on the OAK-D Lite recognizes stop signs and halts the robot。
+- **Stop Sign Detection**: Trained the Roboflow model locally, and run it on the OAK-D Lite to recognize stop signs and halt the robot (edge deployment).
 - **Speaker Feedback**: The speaker receives the ROS2 command and converts it into voice output.
-- **Web GUI**: Live feed and status interface displaying robot camera, stop sign triggers, and command state
+- **Web GUI**: Live feed and status interface displaying robot camera, stop sign triggers, and command state.
 - **ROS 2 Integration**: A modular ROS 2 node architecture integrates voice control and sign detection, prioritizing the camera feed.
   
 ## Team Members
 
 | Name | Major | Year | Role/Focus |
 |------|-------|------|------------|
-| Qinyi Li | Electrical & Computer Engineering | Spring 2025 | Stop Sign Detecttion Model & Audio Systems |
+| Qinyi Li | Electrical & Computer Engineering | Spring 2025 | Stop Sign Detection & Audio Systems |
 | Yuyang Zhang | Biomedical Engineering | Spring 2025 | Configuration and Integration & Ros2 Nodes Construction |
 | Lukas Teubner | B.Sc. Engineering Science | Spring 2025 | Hardware Design & 3D Printing |
 | Clarence Lai | Mechanical Engineering | Spring 2025 | Mechanical Integration & Camera Mount |
@@ -63,20 +63,20 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 ### Core Objectives
 
 **Voice Control**
-- LLM runs on PC
+- usage of gemini LLM model 
+- able to translate commands into specific angle, speed and time
 - ROS2 node on Jetson receives HTTP commands
 - Commands converted to `/cmd_vel` twist messages
-- basic commands like "start", "stop" and "turn left" 
-- Advanced commands like "turn left with speed of 0.3 at the angle of 30 degrees"
 
 **Stop Sign Detection**
-- Roboflow-trained model detects signs using OAK-D Lite
+- locally trained Roboflow model
+- run the model directly on the OAK-D Lite to detect stop sign
 - Sends stop commands via `/stop_cmd_twist`
 - Car automatically stops when stop sign is detected
 - Integration with voice control
   
 ### Nice-to-Have Features
-- Speaker commands for alarming 
+- Speaker for alarming 
 - GUI displays voice and camera feedback
 - Integration with GPS
 
@@ -112,8 +112,7 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
-| Computer Vision | DepthAI + OAK-D Lite | Real-time camera processing and stop sign detection |
-| Image Processing | OpenCV + Roboflow | On-device model for stop sign recognition |
+| Computer Vision | DepthAI + OAK-D Lite + OpenCV | On-device Real-time camera processing and stop sign detection |
 | Framework | ROS2 (Foxy) | Communication and modular design |
 | Computing Platform | Jetson Nano | Embedded platform for sensors and ROS 2 nodes |
 | Motor Control | VESC | Drive and throttle control |
@@ -123,9 +122,10 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 ## How to Run
 
 ### Prerequisites
+- locally trained camera model, programs designed for the audio system and designed GUI
+- hardwares connected to the jetson/laptop
 - Jetson Container setup
 - ROS2 Foxy installation
-- DepthAI SDK
 - Jetson Nano with Docker and ROS2 workspace configured
 
 ### Step 1: Environment Setup
@@ -168,17 +168,17 @@ python3 manage.py drive
 export DONKEYCAR_ENDPOINT
 python3 src/final_projects/final_projects/voice_control.py
 ```
-#### All commands start with "go go go" will be detected
-#### Just with "go go go", the car will go straight at the throttle of 0.2
+#### All commands which start with "go go go" will be detected
+#### Just with "go go go", the car will go straight at the dafault throttle of 0.2
 #### Both simple commands like "stop", "turn left" and advanced commands including specific value of speed and steering are allowed
 #### Examples of supported voice commands:
 ##### "go go go turn backwards"
-##### "go go go turn left at the angle of 30 degrees and the speed of 0.3"
+##### "go go go turn left at the angle of 30 degrees at the speed of 0.3"
 #### The terminal on the laptop will display the command including throttle and angle and "send successfully"
 
 
 ### Step 4: Testing Stop Sign Detector
-#### Downloading the trained model from Roboflow and uploading both the blob and yolo model to the container
+#### Download the self-labelled and collected dataset from Roboflow and train it locally, then upload both the .blob and .yolo file to the container
 ```bash
 python3 src/final_projects/final_projects/stop_detector.py
 ```
@@ -202,7 +202,7 @@ ros2 launch ucsd_robocar_actuator2_pkg vesc_twist.launch.py
 ## Challenges
 
 ### LLM integration with Jetson
-We initially intended to integrate the LLM of Gemini on the Jetson. While due to the limited computation of the Jetson, the accuracy of recognition is pretty weird. Therefore, we move the model back to laptop and send the command to Jetson via HTTP. Even though, the time latency reaches about 10 seconds.
+We initially intended to integrate the Gemini LLM onto the Jetson directly, however, due to the limited computational ability of the Jetson, the accuracy of recognition is low. Therefore, we moved the model back to the laptop and sent the commands to Jetson via HTTP. Still, the time latency is about 10 seconds probably due to the complex communiation between jetson/nodes/vesc/laptop.
 
 #### Possible Solution: 
 Run a lightweight speech-recognition model directly on the Jetson instead of HTTP. 
@@ -371,7 +371,7 @@ Big thanks to @kiers-neely for the README structure inspiration and the open-sou
 
 | Team Member | Role |
 |-------------|------|
-| Qinyi Li | Camera Model and Voice recognition Lead |
+| Qinyi Li | Software design Lead |
 | Yuyang Zhang | ROS2 construction Lead |
 | Lukas Teubner | Hardware Design Lead |
 | Clarence Lai | Mechanical Integration Lead |
