@@ -149,7 +149,7 @@ Command leads to turn right
 ![LLM model display](images/LLM_right.png)
 Command leads to turn reverse
 ![LLM model display](images/LLM_back.png)
-Advanced Command leads includes both speed and angle
+Advanced Command includes both speed and angle
 ![LLM model display](images/LLM_advanced.png)
 
 ### Step 2: Clone and Build
