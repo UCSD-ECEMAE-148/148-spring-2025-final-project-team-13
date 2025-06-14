@@ -250,10 +250,10 @@ Our journey building the Guide Dog Robocar was filled with hardware challenges t
 During our GPS navigation implementation, we constantly battled with PID tuning. Every time we wanted to test different speeds for our GPS laps, we had to recalibrate the PID values from scratch. To make matters worse, our GPS modules kept experiencing cable connection issues, causing intermittent failures that made debugging a nightmare.
 
 **The Great Jetson Crisis of Race Day**
-Perhaps our most stressful moment came the night before the racing day in May. At 11:30 PM, disaster struck – our Jetson Nano's ports completely stopped working. With the race less than 12 hours away, panic set in. Thanks to Kevin and Winston's help for debugging and backing up data late in the night, and Alex's suggestion to switch to a new jetson, we were finally able to have our car run about 2 hours before the race without having to setup everything again which sounded horrible . This last-minute hardware failure forced us to collaborate with Team 4 on race day, as we weren't sure our car would function at all. However, our persistence paid off – our car finally worked on race day since we had properly configured the GPS PID values and could reuse them with the new Jetson.
+Perhaps our most stressful moment came the night before the racing day in May. At 11:30 PM, disaster struck – our Jetson Nano's ports completely stopped working. With the race less than 12 hours away, panic set in. Thanks to Kevin and Winston's help for debugging and backing up data late in the night, and Alex's suggestion to switch to a new jetson, we were finally able to have our car run about 2 hours before the race without having to set up everything again which sounded horrible. Also, thanks to the professor's suggestion, we had the opportunity to collaborate with Team 4 on race day, which was also an unforgettable experience, as we weren't sure whether our car would function at all. However, our persistence paid off – our car finally worked on race day since we had properly configured the GPS PID values and could reuse them with the new Jetson.
 
 **VESC and Power System Woes**
-Our VESC motor controller proved to be another persistent source of frustration. After numerous malfunctions, we finally decided to replace it entirely. However, the new VESC required modifications to our custom leash/power button mount plate, since it came with a separate power button configuration. This meant reprinting and redesigning components we thought were finalized.
+Our VESC motor controller proved to be another persistent source of frustration. After numerous malfunctions, we finally decided to replace it entirely. However, the new VESC required new setups and modifications to our custom leash/power button mount plate, since it came with a separate power button configuration. This meant reprinting and redesigning components we thought were finalized.Fortunately, the VESC worked much better than the previous one.
 
 **Battery and Suspension Failures**
 As if electronic issues weren't enough, our batteries failed multiple times throughout the project, each time requiring replacement and system recalibration. Our car's suspension system also gave out, necessitating a complete replacement that temporarily sidelined our testing.
@@ -288,9 +288,10 @@ The Jetson failure at 11:30 PM the night before race day became our masterclass 
 When conventional solutions failed, creativity became our best tool:
 - Used 3D printing to rapidly prototype custom mounts and holders
 - Repurposed everyday items for temporary fixes during testing
+- Constantly searching for documents for trouble shooting
 - Collaborated with other teams when our hardware was unreliable
 - Found innovative ways to integrate multiple sensors without interference
-- Developed workarounds for component limitations (like our dual power button solution)
+- Developed workarounds for component limitations
 
 **Communication is Everything**
 Working as a team with diverse backgrounds taught us that clear communication prevents most problems. Regular check-ins, shared documentation, and explaining technical concepts across different expertise levels became crucial for success.
