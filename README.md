@@ -364,8 +364,9 @@ Throughout the MAE 148 course, our team completed several key deliverables that 
 Special thanks to Professor Jack Silberman and the dedicated Teaching Assistants:
 
 - **Alexander** - Hardware support and technical guidance
-- **Winston** - Helping with the Jetson recovery
-- **Jingli** - Voluntary help and support
+- **Winston**   - Helping with the Jetson recovery and problem shooting
+- **Jingli**    - Helping with hardware issues and problem shooting
+- **Kevin**     - Helping with PID tuning 
 
 ### UCSD MAE 148 Program
 
