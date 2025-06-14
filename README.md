@@ -244,13 +244,16 @@ Let the integration_node subscribe the GPS information if possible and change th
 
 ### Hardware Struggles
 
-Our journey building the Guide Dog Robocar was filled with hardware challenges that tested our problem-solving skills and determination. Each setback became a learning opportunity, though some came at the most inconvenient times.
+Our journey building the Guide Dog Robocar was filled with challenges that tested our problem-solving skills and determination. Each setback became a learning opportunity, though some came at the most inconvenient times.
+
+**Open CV Setup**
+
 
 **GPS Module Headaches**
-During our GPS navigation implementation, we constantly battled with PID tuning. Due to the swollen battery and unstable VESC, every time we finally realized to finish one lap, the second lap for verification always went into crash. We are unable to find a value which really worked well at a high speed. To make matters worse, our GPS modules kept experiencing cable connection issues, causing intermittent failures that made debugging a nightmare.
+During our GPS navigation implementation, we constantly battled with PID tuning. Due to the swollen battery and unstable VESC, which we found after the race, every time we finally realized to finish one lap, the second lap for verification always went into crash. We are unable to find a value which really worked well at a relatively high speed. To make matters worse, our GPS modules kept experiencing cable connection issues, causing intermittent failures that made debugging a nightmare.
 
 **The Great Jetson Crisis of Race Day**
-Perhaps our most stressful moment came the night before the racing day in May. At 11:30 PM, disaster struck – our Jetson Nano's ports completely stopped working. With the race less than 12 hours away, panic set in. Thanks to Kevin and Winston's help for debugging and backing up data late in the night, and Alex's suggestion to switch to a new jetson, we were finally able to have our car run about 2 hours before the race without having to set up everything again which sounded horrible. Also, thanks to the professor's suggestion, we had the opportunity to collaborate with Team 4 on race day, which was also an unforgettable experience, as we weren't sure whether our car would function at all. However, our persistence paid off – our car finally worked on race day since we had properly configured the GPS PID values and could reuse them with the new Jetson.
+Perhaps our most stressful moment came the night before the racing day in May. At 11:30 PM, disaster struck – our Jetson Nano's ports completely stopped working. With the race less than 12 hours away, panic set in. Thanks to Kevin and Winston's help for debugging and backing up data late in the night, which greatly relieved our stres. With the assistance from Winston, we were able to have our car run about 2 hours before the race without having to set up everything again which sounded horrible. Also, thanks to the professor's suggestion, we had the opportunity to collaborate with Team 4 on race day, which was also an unforgettable experience. Finally, even though at a low speed, we finished the race as the team 134! Another severe issue was to set up all the software again in the Jetson, which already let us broke down for the old one. Fortunately, Alex said that we could just try to substitute the SD card and it Worked! 
 
 **VESC and Power System Woes**
 Our VESC motor controller proved to be another persistent source of frustration. After numerous malfunctions, we finally decided to replace it entirely. However, the new VESC required new setups and modifications to our custom leash/power button mount plate, since it came with a separate power button configuration. This meant reprinting and redesigning components we thought were finalized.Fortunately, the VESC worked much better than the previous one.
