@@ -17,7 +17,6 @@ car_data = {
     "frame": None
 }
 
-# ROS2 节点：订阅速度、停止状态和相机
 class WebStatusNode(Node):
     def __init__(self):
         super().__init__('web_status_node')
@@ -40,8 +39,6 @@ class WebStatusNode(Node):
             car_data["frame"] = frame
         except Exception as e:
             self.get_logger().error(f"Image conversion failed: {e}")
-
-# Flask 视频流生成器 (快照式 MJPEG，每2秒刷新一次页面)
 def generate_video():
     while True:
         frame = car_data["frame"]
@@ -51,15 +48,12 @@ def generate_video():
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' +
                        jpeg.tobytes() + b'\r\n')
-
-# HTML 模板：顶部一行三个状态框，下面摄像头画面
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <title>Jetson Car Dashboard</title>
-  <!-- 保留每2秒刷新，展示“快照” -->
   <meta http-equiv="refresh" content="2">
   <style>
     body {
@@ -74,7 +68,7 @@ HTML_TEMPLATE = """
       font-size: 2em;
       margin-bottom: 20px;
     }
-    /* 1. 顶部状态行：三个框水平排列 */
+
     .info-row {
       display: flex;
       justify-content: center;
@@ -90,7 +84,6 @@ HTML_TEMPLATE = """
     }
     .stop-true  { color: red;   font-weight: bold; }
     .stop-false { color: green; font-weight: bold; }
-    /* 2. 摄像头区域：独占一行 */
     .video-container {
       border: 5px solid #007acc;
       border-radius: 10px;
@@ -138,10 +131,8 @@ def video_feed():
 def main():
     rclpy.init()
     node = WebStatusNode()
-    # 启动 ROS spinning 线程
     ros_thread = threading.Thread(target=lambda: rclpy.spin(node), daemon=True)
     ros_thread.start()
-    # 启动 Flask 服务
     app.run(host='0.0.0.0', port=5000, debug=False)
 
 if __name__ == "__main__":
