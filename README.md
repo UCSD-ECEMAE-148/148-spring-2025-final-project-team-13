@@ -122,7 +122,7 @@ The Guide Dog Robocar is a autonomous service robot designed to emulate a guide 
 ## How to Run
 
 ### Prerequisites
-- locally trained camera model, programs designed for the audio system and designed GUI
+- locally trained camera model, programs designed for the audio system and ROS2 nodes
 - hardwares connected to the jetson/laptop
 - Jetson Container setup
 - ROS2 Foxy installation
@@ -141,22 +141,22 @@ sudo apt update
 sudo apt install ros-foxy-desktop
 pip3 install depthai
 ```
-Simple command leads to go straight
+#### Simple command leads to go straight
 ![LLM model display](images/LLM_go.png)
-Command leads to turn left
+#### Command leads to turn left
 ![LLM model display](images/LLM_left.png)
-Command leads to turn right
+#### Command leads to turn right
 ![LLM model display](images/LLM_right.png)
-Command leads to turn reverse
+#### Command leads to turn reverse
 ![LLM model display](images/LLM_back.png)
-Advanced Command includes both speed and angle
+#### Advanced Command includes both speed and angle
 ![LLM model display](images/LLM_advanced.png)
 
 ### Step 2: Clone and Build
 
 ```bash
 cd ~/ros2_ws/src
-git clone https://github.com/your_team_repo/spring-2025-final-project-team-13
+git clone 
 cd ..
 colcon build 
 source /opt/ros/foxy/setup.bash
@@ -194,7 +194,7 @@ python3 src/final_projects/final_projects/stop_detector.py
 ```
 #### The terminal will display the FPS and whether it detects the sign. If true, a stop command will be sent to the integration_node as priority
 
-### Step 5: Testing Speaker and GUI
+### S  tep 5: Testing Speaker and GUI
 ```bash
 python3 src/final_projects/final_projects/speaker.py
 python3 src/final_projects/final_projects/user_web.py
