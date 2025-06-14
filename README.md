@@ -231,8 +231,8 @@ Let the integration_node subscribe the GPS information if possible and change th
 
 - **Control Conflicts**: Resolve conflicts between continuous twist commands from voice and GPS
 - **Safety Features**: Implement safer collision avoidance using GPS + camera fusion
-- **Vision Robustness**: Improve stop sign detection under varying light conditions
-
+- **Vision Robustness**: Train the new camera model with more traffic signs
+- 
 ### Long-term Vision
 
 - **Mobile App Integration**: Develop companion app for remote monitoring
@@ -247,7 +247,7 @@ Let the integration_node subscribe the GPS information if possible and change th
 Our journey building the Guide Dog Robocar was filled with hardware challenges that tested our problem-solving skills and determination. Each setback became a learning opportunity, though some came at the most inconvenient times.
 
 **GPS Module Headaches**
-During our GPS navigation implementation, we constantly battled with PID tuning. Every time we wanted to test different speeds for our GPS laps, we had to recalibrate the PID values from scratch. To make matters worse, our GPS modules kept experiencing cable connection issues, causing intermittent failures that made debugging a nightmare.
+During our GPS navigation implementation, we constantly battled with PID tuning. Due to the swollen battery and unstable VESC, every time we finally realized to finish one lap, the second lap for verification always went into crash. We are unable to find a value which really worked well at a high speed. To make matters worse, our GPS modules kept experiencing cable connection issues, causing intermittent failures that made debugging a nightmare.
 
 **The Great Jetson Crisis of Race Day**
 Perhaps our most stressful moment came the night before the racing day in May. At 11:30 PM, disaster struck – our Jetson Nano's ports completely stopped working. With the race less than 12 hours away, panic set in. Thanks to Kevin and Winston's help for debugging and backing up data late in the night, and Alex's suggestion to switch to a new jetson, we were finally able to have our car run about 2 hours before the race without having to set up everything again which sounded horrible. Also, thanks to the professor's suggestion, we had the opportunity to collaborate with Team 4 on race day, which was also an unforgettable experience, as we weren't sure whether our car would function at all. However, our persistence paid off – our car finally worked on race day since we had properly configured the GPS PID values and could reuse them with the new Jetson.
@@ -257,9 +257,6 @@ Our VESC motor controller proved to be another persistent source of frustration.
 
 **Battery and Suspension Failures**
 As if electronic issues weren't enough, our batteries failed multiple times throughout the project, each time requiring replacement and system recalibration. Our car's suspension system also gave out, necessitating a complete replacement that temporarily sidelined our testing.
-
-**Camera Mount Evolution**
-For our lane following implementation, we discovered our camera positioning wasn't optimal. This led to designing and 3D printing a custom camera extension for our camera mount, adding another iteration to our hardware design cycle.
 
 ### Team Challenges
 
@@ -382,9 +379,9 @@ Big thanks to @kiers-neely for the README structure inspiration and the open-sou
 
 | Team Member | Role |
 |-------------|------|
-| Qinyi Li | Software design Lead |
-| Yuyang Zhang | ROS2 construction Lead |
-| Lukas Teubner | Hardware Design Lead |
+| Qinyi Li | Software Design Lead |
+| Yuyang Zhang | ROS2 Construction Lead |
+| Lukas Teubner | 3D Printing Lead |
 | Clarence Lai | Mechanical Integration Lead |
 
 ### Project Collaboration
