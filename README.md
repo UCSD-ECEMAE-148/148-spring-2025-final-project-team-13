@@ -141,6 +141,16 @@ sudo apt update
 sudo apt install ros-foxy-desktop
 pip3 install depthai
 ```
+Simple command leads to go straight
+![LLM model display](images/LLM_go.png)
+Command leads to turn left
+![LLM model display](images/LLM_left.png)
+Command leads to turn right
+![LLM model display](images/LLM_right.png)
+Command leads to turn reverse
+![LLM model display](images/LLM_back.png)
+Advanced Command leads includes both speed and angle
+![LLM model display](images/LLM_advanced.png)
 
 ### Step 2: Clone and Build
 
