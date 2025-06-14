@@ -219,7 +219,7 @@ Run a lightweight speech-recognition model directly on the Jetson instead of HTT
 
 ### GPS Signal Conflicts
 
-During implementation, we discovered that integrating GPS with voice and vision inputs led to conflicting control signals. The robot was unable to reconcile simultaneous commands from the voice interface, stop sign detector, and GPS planner. Besides, some commands we want to realize are against the current GPS system, like "speed up" also requires to alter PID.
+During implementation, we discovered that integrating GPS with voice and vision inputs led to conflicts with control signals. The robot was unable to reconcile simultaneous commands from the voice interface, stop sign detector, and GPS planner. Besides, some commands we want to realize are against the current GPS system, like "speed up" also requires to alter PID.
 
 #### Possible Solution
 Let the integration_node subscribe the GPS information if possible and change the code for integration to deal with inputs properly. Furthermore,  we should write a code to automatically alter the PID when speeding up.
@@ -231,7 +231,6 @@ Let the integration_node subscribe the GPS information if possible and change th
 
 - **Control Conflicts**: Resolve conflicts between continuous twist commands from voice and GPS
 - **Safety Features**: Implement safer collision avoidance using GPS + camera fusion
-- **NLP Expansion**: Extend vocabulary of the LLM for more natural interaction
 - **Vision Robustness**: Improve stop sign detection under varying light conditions
 
 ### Long-term Vision
