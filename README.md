@@ -246,7 +246,7 @@ Let the integration_node subscribe the GPS information if possible and change th
 
 Our journey building the Guide Dog Robocar was filled with challenges that tested our problem-solving skills and determination. Each setback became a learning opportunity, though some came at the most inconvenient times.
 
-**Open CV Setup**
+**Open CV Setup Crash**
 
 
 **GPS Module Headaches**
@@ -259,7 +259,7 @@ Perhaps our most stressful moment came the night before the racing day in May. A
 Our VESC motor controller proved to be another persistent source of frustration. After numerous malfunctions, we finally decided to replace it entirely. However, the new VESC required new setups and modifications to our custom leash/power button mount plate, since it came with a separate power button configuration. This meant reprinting and redesigning components we thought were finalized.Fortunately, the VESC worked much better than the previous one.
 
 **Battery and Suspension Failures**
-As if electronic issues weren't enough, our batteries failed multiple times throughout the project, each time requiring replacement and system recalibration. Our car's suspension system also gave out, necessitating a complete replacement that temporarily sidelined our testing.
+As if electronic issues weren't enough, our batteries failed multiple times throughout the project. We found that the first one was swollen after the race, probably resulting in unstable current, which we thought might be the reason for unrepeatable GPS laps.    each time requiring replacement and system recalibration. Our car's suspension system also gave out, necessitating a complete replacement that temporarily sidelined our testing.
 
 ### Team Challenges
 
