@@ -303,8 +303,6 @@ Always have a backup plan. Whether it's spare hardware, alternative software app
 
 ## Hardware Iterations
 
-Throughout the project, our team continually improved the physical integration of components to reflect functional needs and user accessibility:
-
 ### System Wiring Diagram
 
 ![Wiring diagram](images/electronic_schematics.png)
@@ -324,6 +322,8 @@ Throughout the project, our team continually improved the physical integration o
 - **Build Plate Evolution**: Progressed from laser-cut wooden build plate to laser-cut acrylic build plate for improved durability and aesthetics
 
 ### Component Images
+Throughout the project, our team printed some new component to reflect functional needs and user accessibility:
+
 **Plate Design**
 ![Plate Design](images/build_plate.png)
 
