@@ -271,7 +271,7 @@ Despite these numerous setbacks, each challenge strengthened our team's resilien
 ## Project Management Learnings
 
 **Time Estimation Reality Check**
-We learned the hard way to overestimate how long things actually take. What seemed like a "30-minute PID tuning session" often turned into hours of debugging. Hardware failures, cable issues, and unexpected software conflicts consistently derailed our timeline estimates. Our advice: triple your initial time estimates and you might be close to reality.
+We learned the hard way to overestimate how long things actually take. What seemed like a "30-minute PID tuning session" often turned into days of debugging. Hardware failures, cable issues, and unexpected software conflicts consistently derailed our timeline estimates. Our advice: triple your initial time estimates and you might be close to reality.
 
 **The Art of Troubleshooting**
 Every component failure taught us systematic troubleshooting skills. When something broke, we learned to:
