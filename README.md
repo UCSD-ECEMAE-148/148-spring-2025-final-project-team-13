@@ -247,7 +247,7 @@ Let the integration_node subscribe the GPS information if possible and change th
 Our journey building the Guide Dog Robocar was filled with challenges that tested our problem-solving skills and determination. Each setback became a learning opportunity, though some came at the most inconvenient times.
 
 **Open CV Setup Crash**
-
+Due to long time for Open CV installation, we connected Jetson to the home wifi, but the connection was still unstable. The jetson always got disconnected half way of the installation, so we had to rerun the process again and again. Out team number woke up at midnight and found it had broken down with 83% finished! Eventually at the sixth attempt, Open CV was installed successfully on the Jetson, but it took us nearly a whole day to accomplish this task.
 
 **GPS Module Headaches**
 During our GPS navigation implementation, we constantly battled with PID tuning. Due to the swollen battery and unstable VESC, which we found after the race, every time we finally realized to finish one lap, the second lap for verification always went into crash. We are unable to find a value which really worked well at a relatively high speed. To make matters worse, our GPS modules kept experiencing cable connection issues, causing intermittent failures that made debugging a nightmare.
@@ -259,7 +259,7 @@ Perhaps our most stressful moment came the night before the racing day in May. A
 Our VESC motor controller proved to be another persistent source of frustration. After numerous malfunctions, we finally decided to replace it entirely. However, the new VESC required new setups and modifications to our custom leash/power button mount plate, since it came with a separate power button configuration. This meant reprinting and redesigning components we thought were finalized.Fortunately, the VESC worked much better than the previous one.
 
 **Battery and Suspension Failures**
-As if electronic issues weren't enough, our batteries failed multiple times throughout the project. We found that the first one was swollen after the race, probably resulting in unstable current, which we thought might be the reason for unrepeatable GPS laps.    each time requiring replacement and system recalibration. Our car's suspension system also gave out, necessitating a complete replacement that temporarily sidelined our testing.
+As if electronic issues weren't enough, our batteries failed multiple times throughout the project. We found that the first one was swollen after the race, probably resulting in unstable current, which we thought might be the reason for unrepeatable GPS laps. Then Alex gave us the new battery twice  each time requiring replacement and system recalibration. Our car's suspension system also gave out, necessitating a complete replacement that temporarily sidelined our testing.
 
 ### Team Challenges
 
